@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
 
+import 'package:nalezy/pages/chat.dart';
+
+import 'package:nalezy/widget/on_hover_button.dart';
+import 'package:nalezy/widget/on_hover_icon_button.dart';
+
+import 'package:nalezy/widget/footer.dart';
+import 'package:nalezy/widget/chat_message.dart';
+
+import 'package:nalezy/pages/chats.dart';
+
+import 'package:nalezy/themes/main_theme.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -11,26 +23,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      title: 'Straty a Nalezy',
+      theme: AppTheme.lightTheme,
+
+
+      initialRoute: '/home',
+      //home: const MyHomePage(title: 'Straty a Nalezy'),
+      routes: {
+          '/home': (context) => const MyHomePage(title: 'Straty a Nalezy'),
+          '/map': (context) => const Placeholder(),
+          '/add': (context) => const Placeholder(),
+          '/chats': (context) => const ChatsPage(title: 'Chats'),
+          '/chat' : (context) => const ChatPage(title: 'Chat'),
+          '/settings': (context) => const Placeholder(),
+        },
     );
   }
 }
@@ -52,7 +58,6 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
-
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -67,6 +72,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -77,15 +94,19 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: AppTheme.normal,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        centerTitle: true,
+        
       ),
       body: Center(
+      
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -104,19 +125,40 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: .center,
           children: [
+
+            ElevatedButton(
+              onPressed: () {
+                //Navigator.pushNamed(context, '/chats');
+              },
+              child: const Text('Go to Chats Page'),
+            ),
+
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+
+            OnHoverButton(
+              child: OutlinedButton(
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(
+                    color: Colors.blue,
+                    width: 2.5,
+                  ),
+                  shape: CircleBorder(),
+                  padding: EdgeInsets.all(0.0),
+                ),
+                onPressed: _resetCounter,
+                child: HoverIconButton(
+                  iconSize: 30.0,
+                ),
+              ),
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      bottomNavigationBar: Footer()
     );
   }
 }
