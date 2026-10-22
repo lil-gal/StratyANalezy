@@ -31,6 +31,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppTheme.normal,
         leadingWidth: MediaQuery.of(context).size.width,
         leading: Padding (
           padding: EdgeInsets.only(left: 16),
@@ -38,7 +39,7 @@ class _ChatPageState extends State<ChatPage> {
             children: [
               GestureDetector(
                 onTap: (){
-                  
+                  Navigator.pop(context);
                 },
 
                 child: Icon(Icons.arrow_back, color: AppTheme.iconColorSecondary),

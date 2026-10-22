@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nalezy/themes/main_theme.dart';
 
 class OnHoverButton extends StatefulWidget {
   final Widget child;
@@ -6,7 +7,7 @@ class OnHoverButton extends StatefulWidget {
 
   const OnHoverButton({
     Key? key,
-    hoverColor = Colors.blue,
+    hoverColor = AppTheme.hover,
     required this.child,
     this.onHover,
   }) : super(key: key);

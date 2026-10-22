@@ -6,9 +6,10 @@ import 'package:nalezy/widget/on_hover_button.dart';
 import 'package:nalezy/widget/on_hover_icon_button.dart';
 
 import 'package:nalezy/widget/footer.dart';
-import 'package:nalezy/widget/chat_message.dart';
 
+//-----PAGES-----------------------------
 import 'package:nalezy/pages/chats.dart';
+import 'package:nalezy/pages/home.dart';
 
 import 'package:nalezy/themes/main_theme.dart';
 
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/home',
       //home: const MyHomePage(title: 'Straty a Nalezy'),
       routes: {
-          '/home': (context) => const MyHomePage(title: 'Straty a Nalezy'),
+          '/home': (context) => const HomePage(title: 'Straty a Nalezy'),
           '/map': (context) => const Placeholder(),
           '/add': (context) => const Placeholder(),
           '/chats': (context) => const ChatsPage(title: 'Chats'),
@@ -143,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: OutlinedButton(
                 style: OutlinedButton.styleFrom(
                   side: BorderSide(
-                    color: Colors.blue,
+                    color: AppTheme.normal,
                     width: 2.5,
                   ),
                   shape: CircleBorder(),

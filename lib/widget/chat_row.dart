@@ -68,13 +68,13 @@ class _ChatRowState extends State<ChatRow> {
                     ) : const SizedBox.shrink(),
                     Text(
                       timestamp,
-                      style: const TextStyle(color: Colors.grey, fontSize: 12),
+                      style: const TextStyle(color: AppTheme.gray, fontSize: 12),
                     ),
                   ],
                 ),
               ),
         onTap: () {
-          Navigator.popAndPushNamed(context, '/chat');
+          Navigator.pushNamed(context, '/chat');
         },
       ),
       

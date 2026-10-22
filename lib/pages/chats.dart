@@ -8,8 +8,9 @@ import 'package:nalezy/widget/footer.dart';
 import 'package:nalezy/themes/main_theme.dart';
 
 class ChatsPage extends StatefulWidget {
-  const ChatsPage({super.key, required this.title});
   final String title;
+  
+  const ChatsPage({super.key, required this.title});
 
   @override
   State<ChatsPage> createState() => _ChatsPageState();
@@ -21,7 +22,15 @@ class _ChatsPageState extends State<ChatsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chats"),
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+                onTap: (){
+                  Navigator.pop(context);
+                },
+
+                child: Icon(Icons.arrow_back, color: AppTheme.iconColorSecondary),
+              ),
+        title: Text(widget.title),
         backgroundColor: AppTheme.normal,
       ),
       body: ListView(
@@ -50,6 +59,5 @@ class _ChatsPageState extends State<ChatsPage> {
       
 
     );
-
   }
 }

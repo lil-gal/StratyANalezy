@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:nalezy/themes/main_theme.dart';
 
 
 class HoverIconButton extends StatefulWidget {
@@ -29,8 +30,8 @@ class _HoverIconState extends State<HoverIconButton> {
         turns: isHovered ? 0.25 : 0,
         child: IconButton(
           icon: Icon(Icons.refresh, size: widget.iconSize),
-          color: isHovered ? Colors.white : Colors.blue,
-          hoverColor: Colors.blue,
+          color: isHovered ? AppTheme.iconColorDefault : AppTheme.normal,
+          hoverColor: AppTheme.hover,
           onPressed: () {
             // Handle button press
           }
