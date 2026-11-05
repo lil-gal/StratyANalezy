@@ -8,6 +8,8 @@ class AppTheme {
   static const Color active = Color.fromARGB(255, 253, 101, 36);
   static const Color disabled = Color.fromARGB(255, 228, 183, 102);
 
+  static const Color background = Color.fromARGB(255, 255, 238, 216);
+
   static const Color error = Color.fromARGB(255, 238, 55, 49);
   
   static const Color slightlyGray = Color.fromARGB(255,225,225,225);
