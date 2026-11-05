@@ -16,6 +16,29 @@ class ChatsPage extends StatefulWidget {
   State<ChatsPage> createState() => _ChatsPageState();
 }
 
+List<Map<String, dynamic>> chatRooms = [
+  {
+    "chatName": "John Doe",
+    "lastMessage": "Hey, how are you doing?",
+    "timestamp": "10:30 AM",
+    "avatarImage": 'assets/default_pfp.png',
+  },
+
+  {
+    "chatName": "Jane Smith",
+    "lastMessage": "See you tomorrow!",
+    "timestamp": "9:15 AM",
+    "avatarImage": 'assets/default_pfp.png',
+  },
+
+  {
+    "chatName": "Patrick Jane",
+    "lastMessage": "I know what you did last summer.",
+    "timestamp": "11:47 PM",
+    "avatarImage": 'assets/default_pfp.png',
+  },
+];
+
 
 class _ChatsPageState extends State<ChatsPage> {
   @override
@@ -33,27 +56,17 @@ class _ChatsPageState extends State<ChatsPage> {
         title: Text(widget.title),
         backgroundColor: AppTheme.normal,
       ),
-      body: ListView(
-              children: [
-                ChatRow(
-                  chatName: "John Doe",
-                  lastMessage: "Hey, how are you doing?",
-                  timestamp: "10:30 AM",
-                  avatarImage: 'assets/default_pfp.png',
-                ),
-                ChatRow(
-                  chatName: "Jane Smith",
-                  lastMessage: "See you tomorrow!",
-                  timestamp: "9:15 AM",
-                  avatarImage: 'assets/default_pfp.png',
-                ),
-                ChatRow(
-                  chatName: "Patrick Jane",
-                  lastMessage: "I know what you did last summer.",
-                  timestamp: "11:47 PM",
-                  avatarImage: 'assets/default_pfp.png',
-                ),
-              ]
+      body: ListView.builder(
+              itemCount: chatRooms.length,
+              itemBuilder: (context, index) {
+                final room = chatRooms[index];
+                return ChatRow (
+                  chatName: room["chatName"],
+                  lastMessage: room["lastMessage"],
+                  timestamp: room["timestamp"],
+                  avatarImage: room["avatarImage"],
+                );
+              }
             ),
             bottomNavigationBar: Footer(),
       

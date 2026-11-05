@@ -28,6 +28,9 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(seedColor: normal),
+      splashFactory: NoSplash.splashFactory,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
 
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
