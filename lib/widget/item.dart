@@ -41,7 +41,6 @@ class _ItemState extends State<Item> {
         },
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          margin: const EdgeInsets.symmetric(vertical: 10),
           color: isHovered ? AppTheme.hover2 : Colors.transparent, // Change background color on hover
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,11 +66,11 @@ class _ItemState extends State<Item> {
                     ),
                     const SizedBox(height: 8),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(Icons.location_pin, size: 12),
                         SizedBox(width: 4,),
-                        Expanded(
-                          child: Text(
+                        Text(
                             widget.itemLocation,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
@@ -79,10 +78,8 @@ class _ItemState extends State<Item> {
                               decoration: TextDecoration.underline,
                             )
                           ),
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: Text(
+                        const SizedBox(width: 64),
+                        Text(
                             widget.itemDateFound,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.end,
@@ -90,7 +87,6 @@ class _ItemState extends State<Item> {
                               fontSize: 10,
                             )
                           ),
-                        ),
                         SizedBox(width: 4,),
                         Icon(Icons.date_range, size: 12),
                       ],
@@ -105,30 +101,26 @@ class _ItemState extends State<Item> {
                       )
                     ),
                     //const SizedBox(height: 10,),
-                    Row(
-                      children: [
-                        Expanded(
-                          child:  Container(
-                            alignment: Alignment.centerRight,
-                            padding: EdgeInsets.all(0),
-                            height: 16,
-                            child: HoverIconButton(
-                              icon: Icon(Icons.reply, size: 16,),
-                              style: IconButton.styleFrom(
-                                padding: EdgeInsets.all(0),
-                              ),
-                              hasHoverColor: false,
-                              onPressed: () {
-                                // Handle reply button press
-                              },
-                            ),
-                          )
-                        )
-                      ],
-                    ),
+                    
                   ],
                 ),
               ),
+              Container(
+                alignment: Alignment.bottomRight,
+                padding: EdgeInsets.symmetric(horizontal: 8,),
+                width: 16,
+                height: 100,
+                child: HoverIconButton(
+                  icon: Icon(Icons.reply, size: 16,),
+                  style: IconButton.styleFrom(
+                    padding: EdgeInsets.all(0),
+                  ),
+                  hasHoverColor: false,
+                  onPressed: () {
+                    // Handle reply button press
+                  },
+                ),
+              )
             ],
           ),
         ),

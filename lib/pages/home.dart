@@ -24,12 +24,10 @@ class _HomePageState extends State<HomePage> {
           ),
           child: SafeArea(
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(child: ItemsScroll(title: "Your Lost Items > ")),
-                  const SizedBox(height: 10),
                   Expanded(child: ItemsScroll(title: "Your Found Items >")),
                 ],
               ),

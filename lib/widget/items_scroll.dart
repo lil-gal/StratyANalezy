@@ -40,7 +40,7 @@ class _ItemsScrollState extends State<ItemsScroll> {
       "itemName": "Item4",
       "itemLocation": "Idk",
       "itemDateFound": "1. 1. 2026",
-      "itemDescription": "This is a very beautiful item, it is blue, black and kinda white-ish, it has a picture of someone inside",
+      "itemDescription": "This is a very beautiful item, it is blue, black and kinda white-ish, it has a picture of someone inside, buabdugaygauidgauygdaygdaygudauigdauidgygadauygdausgdyuagsduyags",
     },
   ];
 
@@ -52,13 +52,17 @@ class _ItemsScrollState extends State<ItemsScroll> {
         Row(
           children: [
             Expanded(
-              child: Text(widget.title, 
-              textAlign: TextAlign.left, 
-              style: TextStyle(
-                color: AppTheme.textDisabled, 
-                fontWeight: FontWeight.bold, 
-                fontSize: 18
-                )
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                color: AppTheme.normal,
+                child: Text(widget.title, 
+                  textAlign: TextAlign.left, 
+                  style: TextStyle(
+                    color: AppTheme.textDisabled, 
+                    fontWeight: FontWeight.bold, 
+                    fontSize: 18
+                    )
+                  ),
               ),
             )
           ],
