@@ -23,7 +23,8 @@ class _CreatePostPageState extends State<CreatePostPage> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.fromLTRB(12,0,12,0),
-        child:Column(
+        child: Form(child:Column(
+          spacing: 16,
           children: [
           
             DropdownMenu(
@@ -54,14 +55,43 @@ class _CreatePostPageState extends State<CreatePostPage> {
                 DropdownMenuEntry(value: true, label: "Najdeny objekt"),
                 DropdownMenuEntry(value: false, label: "Strateny objekt")
               ],
+
+
+
             ),
-            SizedBox(
+
+            SizedBox( // input Name
+              width: double.infinity,
+              child: TextField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Meno objektu'
+                ),
+              ),
+
+
+            ),
+            SizedBox( // input Name
+              width: double.infinity,
+              child: TextField(
+                minLines: 2,
+                maxLines: 2,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Popisok',
+                  alignLabelWithHint: true
+                ),
+              ),
+
+
+            ),
+
+            SizedBox( // button
               width: double.infinity,
               
               
               child: ElevatedButton(
                 onPressed: () {},
-
                 
                 style: ButtonStyle(
                   shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -78,7 +108,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
           
           ],
         ),
-      ),
+      )),
       bottomNavigationBar: Footer()
     );
   }
