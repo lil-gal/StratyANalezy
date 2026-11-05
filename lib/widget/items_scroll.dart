@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 
 import 'package:nalezy/themes/main_theme.dart';
 
-import 'package:nalezy/widget/lost_item.dart';
+import 'package:nalezy/widget/item.dart';
 
-class LostItems extends StatefulWidget {
+class ItemsScroll extends StatefulWidget {
+  final String title;
 
-  const LostItems({
+  const ItemsScroll({
+    required this.title,
     super.key,
   });
 
   @override
-  State<LostItems> createState() => _LostItems();
+  State<ItemsScroll> createState() => _ItemsScrollState();
 }
 
-class _LostItems extends State<LostItems> {
+class _ItemsScrollState extends State<ItemsScroll> {
   List<Map<String, dynamic>> items = [
     {
       "itemName": "Item1",
@@ -47,22 +49,31 @@ class _LostItems extends State<LostItems> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Text("Your Lost Items",textAlign: TextAlign.left, style: TextStyle(color: AppTheme.textDisabled)),
+        Row(
+          children: [
+            Expanded(
+              child: Text(widget.title, 
+              textAlign: TextAlign.left, 
+              style: TextStyle(
+                color: AppTheme.textDisabled, 
+                fontWeight: FontWeight.bold, 
+                fontSize: 18
+                )
+              ),
+            )
+          ],
+        ),
         Expanded(
           child: ListView.builder(
             itemCount: items.length,
             itemBuilder: (context, index) {
               final item = items[index];
 
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.all(4),
-                child: LostItem(
+              return Item(
                   itemName: item["itemName"],
                   itemLocation: item["itemLocation"],
                   itemDateFound: item["itemDateFound"],
                   itemDescription: item["itemDescription"],
-                ),
               );
             },
           ),

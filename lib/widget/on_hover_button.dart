@@ -4,10 +4,12 @@ import 'package:nalezy/themes/main_theme.dart';
 class OnHoverButton extends StatefulWidget {
   final Widget child;
   final ValueChanged<bool>? onHover;
+  final Matrix4? transformHover;
 
   const OnHoverButton({
     Key? key,
     hoverColor = AppTheme.hover,
+    this.transformHover,
     required this.child,
     this.onHover,
   }) : super(key: key);
@@ -22,7 +24,7 @@ class _OnHoverButtonState extends State<OnHoverButton> {
   @override
   Widget build(BuildContext context) {
 
-    final hoveredTransform = Matrix4.identity()..scale(1.1)..translate(-2.5, -2.5);
+    final hoveredTransform = widget.transformHover;
     final transform = isHovered ? hoveredTransform : Matrix4.identity();
 
     return MouseRegion(
@@ -32,6 +34,7 @@ class _OnHoverButtonState extends State<OnHoverButton> {
         duration: const Duration(milliseconds: 200),
         transform: transform,
         child: widget.child,
+        color: Colors.transparent, // Set the background color to transparent
       ),
     );
   }

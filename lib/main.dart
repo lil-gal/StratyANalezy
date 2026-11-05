@@ -155,7 +155,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 onPressed: _resetCounter,
                 child: HoverIconButton(
-                  iconSize: 30.0,
+                  icon: Icon(Icons.refresh, size: 16,),
+                  onPressed: (){
+                    // Handle reply button press
+                  },
                 ),
               ),
             ),

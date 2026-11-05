@@ -4,12 +4,18 @@ import 'package:nalezy/themes/main_theme.dart';
 
 
 class HoverIconButton extends StatefulWidget {
-  final double iconSize;
+  final Icon icon;
+  final double turns;
+  final bool hasHoverColor;
+  final Function()? onPressed;
 
   const HoverIconButton(
     {
       Key? key,
-      required this.iconSize,
+      required this.icon,
+      required this.onPressed,
+      this.turns = 0.0,
+      this.hasHoverColor = true,
     }
   ) : super(key: key);
   @override
@@ -18,6 +24,7 @@ class HoverIconButton extends StatefulWidget {
 
 class _HoverIconState extends State<HoverIconButton> {
   bool isHovered = false;
+  Color get hoverColor  => widget.hasHoverColor ? AppTheme.iconColorDefault : AppTheme.hover;
   
 
   @override
@@ -27,14 +34,14 @@ class _HoverIconState extends State<HoverIconButton> {
       onExit: (_) => _onEntered(false),
       child: AnimatedRotation(
         duration: const Duration(milliseconds: 200),
-        turns: isHovered ? 0.25 : 0,
+        turns: isHovered ? widget.turns : 0,
         child: IconButton(
-          icon: Icon(Icons.refresh, size: widget.iconSize),
-          color: isHovered ? AppTheme.iconColorDefault : AppTheme.normal,
-          hoverColor: AppTheme.hover,
-          onPressed: () {
-            // Handle button press
-          }
+          icon: widget.icon,
+          color: isHovered ? hoverColor : AppTheme.normal,
+          hoverColor: widget.hasHoverColor ? AppTheme.hover : Colors.transparent,
+          onPressed: widget.onPressed,
+          splashColor: Colors.transparent, // Remove splash color
+          highlightColor: Colors.transparent, // Remove highlight color
         )
       ),
     );   
