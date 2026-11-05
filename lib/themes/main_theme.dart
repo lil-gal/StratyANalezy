@@ -5,10 +5,11 @@ class AppTheme {
   static const Color normal = Color.fromARGB(255, 255, 164, 59);
   static const Color hover = Color.fromARGB(255, 255, 183, 102);
   static const Color hoverAlt = Color.fromARGB(255, 255, 237, 137);
+  static const Color hover2 = Color.fromARGB(255, 255, 238, 216);
   static const Color active = Color.fromARGB(255, 253, 101, 36);
   static const Color disabled = Color.fromARGB(255, 228, 183, 102);
 
-  static const Color background = Color.fromARGB(255, 255, 238, 216);
+  static const Color background = Color.fromARGB(255, 255, 255, 255);
 
   static const Color error = Color.fromARGB(255, 238, 55, 49);
   
@@ -27,6 +28,9 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(seedColor: normal),
+      splashFactory: NoSplash.splashFactory,
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
 
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(

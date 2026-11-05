@@ -8,6 +8,7 @@ class HoverIconButton extends StatefulWidget {
   final double turns;
   final bool hasHoverColor;
   final Function()? onPressed;
+  final ButtonStyle? style;
 
   const HoverIconButton(
     {
@@ -16,6 +17,7 @@ class HoverIconButton extends StatefulWidget {
       required this.onPressed,
       this.turns = 0.0,
       this.hasHoverColor = true,
+      this.style,
     }
   ) : super(key: key);
   @override
@@ -39,6 +41,7 @@ class _HoverIconState extends State<HoverIconButton> {
           icon: widget.icon,
           color: isHovered ? hoverColor : AppTheme.normal,
           hoverColor: widget.hasHoverColor ? AppTheme.hover : Colors.transparent,
+          style: widget.style,
           onPressed: widget.onPressed,
           splashColor: Colors.transparent, // Remove splash color
           highlightColor: Colors.transparent, // Remove highlight color

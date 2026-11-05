@@ -11,6 +11,7 @@ import 'package:nalezy/widget/footer.dart';
 //-----PAGES-----------------------------
 import 'package:nalezy/pages/chats.dart';
 import 'package:nalezy/pages/home.dart';
+import 'package:nalezy/pages/welcome.dart';
 
 import 'package:nalezy/themes/main_theme.dart';
 
@@ -40,6 +41,8 @@ class MyApp extends StatelessWidget {
           '/chats': (context) => const ChatsPage(title: 'Chats'),
           '/chat' : (context) => const ChatPage(title: 'Chat'),
           '/settings': (context) => const Placeholder(),
+          '/welcome': (context) => const WelcomePage(),
+          '/sign-in': (context) => const Placeholder(),
         },
     );
   }
