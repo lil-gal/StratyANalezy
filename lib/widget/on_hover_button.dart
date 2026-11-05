@@ -33,8 +33,8 @@ class _OnHoverButtonState extends State<OnHoverButton> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         transform: transform,
-        child: widget.child,
         color: Colors.transparent, // Set the background color to transparent
+        child: widget.child,
       ),
     );
   }
