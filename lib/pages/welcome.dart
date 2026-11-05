@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 import 'package:nalezy/themes/main_theme.dart';
 
@@ -20,8 +21,8 @@ class _WelcomePageState extends State<WelcomePage> {
     return Scaffold(
       body: DecoratedBox(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/welcome_bg_i13_14.png"),
+          image: DecorationImage(image: Svg(
+            'assets/welcome_bg_i13_14.svg'),
             fit: BoxFit.cover,
           ),
         ),

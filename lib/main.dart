@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
           '/settings': (context) => const Placeholder(),
           '/welcome': (context) => const WelcomePage(),
           '/sign-in': (context) => const Placeholder(),
+          '/register': (context) => const Placeholder(),
         },
     );
   }
