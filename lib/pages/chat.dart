@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 //import 'package:footer/footer.dart';
 //import 'package:footer/footer_view.dart';
@@ -115,17 +116,20 @@ class _ChatPageState extends State<ChatPage> {
                     ),
                 ),
                 SizedBox(width: 6,),
-                GestureDetector(
-                  onTap: () {
-                    sendMessage();
-                  },
-                  child: Container(
-
-                    padding: EdgeInsets.all(4),
-                    color: AppTheme.normal,
-                    child: Icon(Icons.send, color: AppTheme.iconColorDefault, size: 32,),
-                  )
-                )
+                  MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                    onTap: () {
+                      sendMessage();
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(4),
+                      color: AppTheme.normal,
+                      child: Icon(Icons.send, color: AppTheme.iconColorDefault, size: 32,),
+                    ),
+                  ),
+                ),
+                
               ],
             )
           ],
