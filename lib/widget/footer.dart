@@ -14,8 +14,6 @@ class NavBarItem {
   Color fore = AppTheme.active;
   Color bg = AppTheme.active;
 
-  final Color _transparent = Color.fromARGB(0,0,0,0);
-
   NavBarItem(this.label,this.route,this.icon);
 
   
@@ -26,8 +24,9 @@ class NavBarItem {
 
   void UnmarkSelect() {
     fore = AppTheme.iconColorDefault;
-    bg = _transparent;
+    bg = Colors.transparent;
   }
+
 }
 
 int _selectedIndex = 0;
@@ -65,7 +64,6 @@ class _FooterState extends State<Footer>{
 
     List<BottomNavigationBarItem> items = [];
 
-    var i = 0;
     for (var v in buttons) {
       var icon = Icon(
         v.icon,
@@ -85,8 +83,8 @@ class _FooterState extends State<Footer>{
           child: icon
         )
       );
+
       items.add(item);
-      i++;
     }
 
     _initSelections();
