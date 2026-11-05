@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:nalezy/pages/chat.dart';
+import 'package:nalezy/pages/createPost.dart';
 
 import 'package:nalezy/widget/on_hover_button.dart';
 import 'package:nalezy/widget/on_hover_icon_button.dart';
@@ -27,6 +28,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Straty a Nalezy',
       theme: AppTheme.lightTheme,
+      
+      debugShowCheckedModeBanner: false,
 
 
       initialRoute: '/home',
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
       routes: {
           '/home': (context) => const HomePage(title: 'Straty a Nalezy'),
           '/map': (context) => const Placeholder(),
-          '/add': (context) => const Placeholder(),
+          '/add': (context) => CreatePostPage(title: 'Create a Post'),
           '/chats': (context) => const ChatsPage(title: 'Chats'),
           '/chat' : (context) => const ChatPage(title: 'Chat'),
           '/settings': (context) => const Placeholder(),
