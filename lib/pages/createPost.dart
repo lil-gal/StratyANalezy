@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:nalezy/widget/date_time_form_field.dart';
+import 'package:nalezy/widget/image_picker.dart';
+import 'package:image_picker_platform_interface/image_picker_platform_interface.dart';
 
 import 'package:nalezy/widget/footer.dart';
 
@@ -18,6 +21,7 @@ class CreatePostPage extends StatefulWidget{
 
 
 class _CreatePostPageState extends State<CreatePostPage> {
+  XFile? _image;
 
 
   @override
@@ -62,6 +66,13 @@ class _CreatePostPageState extends State<CreatePostPage> {
 
             ),
 
+            FractionallySizedBox(
+              widthFactor: 0.45,
+              child: ImagePickerSquare(
+                onChanged: (file) => _image = file, // store it in your form state
+              ),
+            ),
+
             SizedBox( // input Name
               width: double.infinity,
               child: TextField(
@@ -96,6 +107,17 @@ class _CreatePostPageState extends State<CreatePostPage> {
               )
               
             ),
+            SizedBox( // Temporary, replace with map
+              width: double.infinity,
+              child: TextField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'TODO map'
+                ),
+              ),
+
+
+            ),
 
             // add map input
 
@@ -114,7 +136,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   )
                 ),
 
-                child: Text("Text")
+                child: Text("Vytvoriť príspevok")
               )
               
             ),

@@ -48,7 +48,9 @@ class _DateTimeFormFieldState extends State<DateTimeFormField> {
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
       initialEntryMode: DatePickerEntryMode.calendarOnly,
-      helpText: "Zadajte dátum"
+      helpText: "Zadajte dátum",
+      confirmText: "Potvrdiť",
+      cancelText: "Zrušiť"
     );
     if (date == null || !mounted) return;
 
@@ -61,7 +63,9 @@ class _DateTimeFormFieldState extends State<DateTimeFormField> {
       builder: (context, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
         child: child!
-      )
+      ),
+      confirmText: "Potvrdiť",
+      cancelText: "Zrušiť"
     );
     if (time == null) return;
 

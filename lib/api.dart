@@ -109,8 +109,8 @@ class Chat{
 
 
 void test(){
-  
   print(createPost(PostData(true, "Batoh", "cierny batoh", DateTime.now(), [Place(1,1, 10)])));
+
 }
 
 //USER
