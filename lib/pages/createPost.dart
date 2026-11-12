@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nalezy/widget/date_time_form_field.dart';
 
 import 'package:nalezy/widget/footer.dart';
 
@@ -16,7 +17,9 @@ class CreatePostPage extends StatefulWidget{
   State<CreatePostPage> createState() => _CreatePostPageState();
 }
 
+
 class _CreatePostPageState extends State<CreatePostPage> {
+
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +74,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
 
 
             ),
-            SizedBox( // input Name
+            SizedBox( // input Desc
               width: double.infinity,
               child: TextField(
                 minLines: 2,
@@ -84,6 +87,15 @@ class _CreatePostPageState extends State<CreatePostPage> {
               ),
 
 
+            ),
+
+            SizedBox( // datetime
+              width: double.infinity,
+              child: DateTimeFormField(
+                label: "Dátum a čas",
+                initialValue: DateTime.now(),
+              )
+              
             ),
 
             SizedBox( // button
