@@ -3,8 +3,7 @@ import 'package:nalezy/widget/date_time_form_field.dart';
 
 import 'package:nalezy/widget/footer.dart';
 
-
-import 'package:nalezy/themes/main_theme.dart';
+import 'package:nalezy/api.dart' as api;
 
 class CreatePostPage extends StatefulWidget{
   //idk?
@@ -98,12 +97,14 @@ class _CreatePostPageState extends State<CreatePostPage> {
               
             ),
 
+            // add map input
+
             SizedBox( // button
               width: double.infinity,
               
               
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {api.test();},
                 
                 style: ButtonStyle(
                   shape: WidgetStateProperty.all<RoundedRectangleBorder>(
