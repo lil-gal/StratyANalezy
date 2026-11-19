@@ -140,6 +140,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                               CustomTextFormField(
                                 height: 40,
+                                fontSize: 12,
                                 style: TextStyle(fontSize: 12),
                                 obscureText: true,
                                 autovalidateMode: AutovalidateMode.onUnfocus,

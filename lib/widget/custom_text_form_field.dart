@@ -13,6 +13,7 @@ class CustomTextFormField extends StatefulWidget{
   final bool changeVisibility;
 
   final double height;
+  final double fontSize;
   final BorderRadius? borderRadius;
 
   final FormFieldValidator<String>? validator;
@@ -24,6 +25,7 @@ class CustomTextFormField extends StatefulWidget{
     this.autovalidateMode = AutovalidateMode.disabled,
     this.decoration = const InputDecoration(border: OutlineInputBorder(), errorStyle: TextStyle(fontSize: 0)),
     this.errorSize = 12,
+    this.fontSize = 12,
     this.controller,
     this.height = 50,
     this.borderRadius,
@@ -102,14 +104,18 @@ class _CustomTextFormFieldState extends State<CustomTextFormField>{
                     onPressed: (){
                       changeVisibility();
                     }, 
-                    icon: _isVisible ? Icon(Icons.visibility_off) : Icon(Icons.visibility),
+                    icon: _isVisible ? Icon(Icons.visibility_off, size: widget.fontSize + 2) : Icon(Icons.visibility, size: widget.fontSize + 2),
                   ) : null,
+                  labelStyle: TextStyle(fontSize: widget.fontSize),
+                  hintStyle: TextStyle(fontSize: widget.fontSize),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                     borderSide: _isHovered ? BorderSide(color: AppTheme.hover, width: 2) : BorderSide(color:AppTheme.normal, width: 1.5)
                   ),
                 ),
-                style: widget.style,
+                style: widget.style?.copyWith(
+                  fontSize: widget.fontSize,
+                ),
               ),
             )
           ),
