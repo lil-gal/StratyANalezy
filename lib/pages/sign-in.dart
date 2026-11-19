@@ -55,222 +55,232 @@ class _SignInPageState extends State<SignInPage> {
     }
   }
 
+  double? calculateWidthButton(){
+    if (MediaQuery.of(context).size.width * 0.6 > 500){
+      return 500.0;
+    }
+    else{
+      return MediaQuery.of(context).size.width * 0.6;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: DecoratedBox(
         decoration: BoxDecoration(
           image: DecorationImage(image: Svg(
-            'assets/welcome_bg_i13_14.svg'),
+            'assets/sign-in.svg'),
             fit: BoxFit.fill,
           ),
         ),
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          alignment: Alignment.center,
-          child: Column(
-            children: [
-              SizedBox(height: 150,),
-              Image(
-                image: AssetImage("assets/default_pfp.png"),
-                height: 120,
-                width: 120,
-              ),
-              SizedBox(height: 120,),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.6 > 500 ? 500 : MediaQuery.of(context).size.width * 0.6,
-                child: Column(
-                  children: [
-                    Row(children: [
-                      Expanded(
-                        child: Form(
-                          key: _formKey,
-                          child: Column(
-                            children: [
-                              CustomTextFormField(
-                                height: 40,
-                                style: TextStyle(fontSize: 12),
-                                obscureText: false,
-                                autovalidateMode: AutovalidateMode.onUnfocus,
-                                decoration: InputDecoration(
-                                  labelText: 'Email/Username',
-                                  labelStyle: TextStyle(fontSize: 12),
-                                  hintStyle: TextStyle(fontSize: 12),
-                                  errorStyle: TextStyle(fontSize: 0)
-                                ),
-                                errorSize: 10,
-                                controller: emailOrUsernameController,
-                                validator: emailValidation,
-                              ),
-                              SizedBox(height: 20,),
-                              CustomTextFormField(
-                                height: 40,
-                                style: TextStyle(fontSize: 12),
-                                obscureText: true,
-                                autovalidateMode: AutovalidateMode.onUnfocus,
-                                changeVisibility: true,
-                                decoration: InputDecoration(
-                                  labelText: 'Password',
-                                  labelStyle: TextStyle(fontSize: 12),
-                                  hintStyle: TextStyle(fontSize: 12),
-                                  errorStyle: TextStyle(fontSize: 0)
-                                ),
-                                errorSize: 10,
-                                controller: passwordController,
-                                validator: passwordValidation,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],),
-                    MediaQuery.of(context).size.width > 500 ?
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [ 
-                        Row(
-                            children: [
-                              Text(
-                                "Don't have an account yet?",
-                                style: TextStyle(color: AppTheme.gray, fontSize: 12),
-                              ),
-                              SizedBox(width: 5,),
-                              HoverText(
-                                text: 'Register',
-                                decoration: TextDecoration.underline,
-                                hoverDecoration: TextDecoration.underline,
-                                hoverDecorationEnabled: true,
-                                style: TextStyle(fontSize: 12),
-                                onTap: () {
-                                  Navigator.pushNamed(context, '/register');
-                                },
-                              ),
-                            ]
-                          ),
-                        HoverText(
-                            text: 'Forgot Password?',
-                            textAlign: TextAlign.right,
-                            decoration: TextDecoration.underline,
-                            hoverDecoration: TextDecoration.underline,
-                            hoverDecorationEnabled: true,
-                            style: TextStyle(fontSize: 12),
-                            onTap: () {
-                              Navigator.pushNamed(context, '/forgot-password');
-                            },
-                          ),
-                      ],
-                    ) :   
-                    Row(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    "SIGN IN", 
+                    style: TextStyle(
+                      fontSize: 32,
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.6 > 500 ? 500 : MediaQuery.of(context).size.width * 0.6,
+                    child: Column(
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            MediaQuery.of(context).size.width > 350 ?
-                            Row(
-                              children: [
-                                Text(
-                                  "Don't have an account yet?",
-                                  style: TextStyle(color: AppTheme.gray, fontSize: 12),
-                                ),
-                                SizedBox(width: 5,),
-                                HoverText(
-                                  text: 'Register',
-                                  textAlign: TextAlign.left,
-                                  decoration: TextDecoration.underline,
-                                  hoverDecoration: TextDecoration.underline,
-                                  hoverDecorationEnabled: true,
-                                  style: TextStyle(fontSize: 12),
-                                  onTap: () {
-                                    Navigator.pushNamed(context, '/register');
-                                  },
-                                ),
-                              ]
-                            ) : 
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Don't have an account yet?",
-                                  style: TextStyle(color: AppTheme.gray, fontSize: 12),
-                                ),
-                                SizedBox(height: 5,),
-                                HoverText(
-                                  text: 'Register',
-                                  textAlign: TextAlign.left,
-                                  decoration: TextDecoration.underline,
-                                  hoverDecoration: TextDecoration.underline,
-                                  hoverDecorationEnabled: true,
-                                  style: TextStyle(fontSize: 12),
-                                  onTap: () {
-                                    Navigator.pushNamed(context, '/register');
-                                  },
-                                ),
-                              ],
+                        Row(children: [
+                          Expanded(
+                            child: Form(
+                              key: _formKey,
+                              child: Column(
+                                children: [
+                                  CustomTextFormField(
+                                    height: (MediaQuery.of(context).size.width < 350 || MediaQuery.of(context).size.height < 450) ? 30 : 40,
+                                    fontSize: (MediaQuery.of(context).size.width < 350 || MediaQuery.of(context).size.height < 450) ? 10 : 12,
+                                    obscureText: false,
+                                    autovalidateMode: AutovalidateMode.onUnfocus,
+                                    decoration: InputDecoration(
+                                      labelText: 'Email/Username',
+                                      errorStyle: TextStyle(fontSize: 0)
+                                    ),
+                                    errorSize: (MediaQuery.of(context).size.width < 350 || MediaQuery.of(context).size.height < 450) ? 8 : 10,
+                                    controller: emailOrUsernameController,
+                                    validator: emailValidation,
+                                  ),
+                                  SizedBox(height: 5,),
+                                  CustomTextFormField(
+                                    height: (MediaQuery.of(context).size.width < 350 || MediaQuery.of(context).size.height < 450) ? 30 : 40,
+                                    fontSize: (MediaQuery.of(context).size.width < 350 || MediaQuery.of(context).size.height < 450) ? 10 : 12,
+                                    obscureText: true,
+                                    autovalidateMode: AutovalidateMode.onUnfocus,
+                                    changeVisibility: true,
+                                    decoration: InputDecoration(
+                                      labelText: 'Password',
+                                      errorStyle: TextStyle(fontSize: 0)
+                                    ),
+                                    errorSize: (MediaQuery.of(context).size.width < 350 || MediaQuery.of(context).size.height < 450) ? 8 : 10,
+                                    controller: passwordController,
+                                    validator: passwordValidation,
+                                  ),
+                                ],
+                              ),
                             ),
-                            SizedBox(height: 5,),
+                          ),
+                        ],),
+                        SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: calculateWidthButton(),
+                              height: 30,
+                              child: HoverElevatedButton(
+                                onPressed: () {
+                                  _formKey.currentState!.validate();
+                                  checkLogin(emailOrUsernameController.text, passwordController.text);
+                                  if (correctCredentials) {
+                                    // Navigate to the home page or another page after successful login
+                                    Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+                                  } else {
+                                    setState(() {}); // Update the UI to show the error message
+                                  }
+                                },
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: (MediaQuery.of(context).size.width < 350 && MediaQuery.of(context).size.height < 450) ? 10 : 20, 
+                                  vertical: (MediaQuery.of(context).size.width < 350 && MediaQuery.of(context).size.height < 450) ? 0 : 5
+                                ),
+                                transformHover: Matrix4.identity()..scaleByVector3((Vector3(1.05, 1.05, 1.0)))..translateByVector3(Vector3(-5.0, 0.0, -5.0)),
+                                child: Text(
+                                  'Sign In',
+                                  style: TextStyle(fontSize: (MediaQuery.of(context).size.width < 350 && MediaQuery.of(context).size.height < 450) ? 14 : 16, 
+                                  fontWeight: FontWeight.bold, color: AppTheme.textDefault),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        MediaQuery.of(context).size.width > 350 ?
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [ 
+                            Row(
+                                children: [
+                                  Text(
+                                      "Don't have an account yet?",
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      style: TextStyle(color: AppTheme.gray, fontSize: MediaQuery.of(context).size.width > 425 ? 10 : 8),
+                                  ),
+                                  SizedBox(width: 5,),
+                                  HoverText(
+                                    text: 'Register',
+                                    decoration: TextDecoration.underline,
+                                    hoverDecoration: TextDecoration.underline,
+                                    hoverDecorationEnabled: true,
+                                    style: TextStyle(fontSize: MediaQuery.of(context).size.width > 425 ? 10 : 8),
+                                    onTap: () {
+                                      Navigator.pushNamed(context, '/register');
+                                    },
+                                  ),
+                                ]
+                              ),
                             HoverText(
                                 text: 'Forgot Password?',
-                                textAlign: TextAlign.left,
+                                textAlign: TextAlign.right,
                                 decoration: TextDecoration.underline,
                                 hoverDecoration: TextDecoration.underline,
                                 hoverDecorationEnabled: true,
-                                style: TextStyle(fontSize: 12),
+                                style: TextStyle(fontSize: MediaQuery.of(context).size.width > 425 ? 10 : 8),
                                 onTap: () {
                                   Navigator.pushNamed(context, '/forgot-password');
                                 },
                               ),
                           ],
-                        ),
-                      ],
-                    ),
-                    
-                    SizedBox(height: 5,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.6 > 500 ? 500 : MediaQuery.of(context).size.width * 0.6,
-                          alignment: Alignment.center,
-                          child: Text(
-                            errorMessage,
-                            style: TextStyle(color: AppTheme.error, fontSize: 0),
-                          )
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 20,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.3 > 200 ? 200 : MediaQuery.of(context).size.width * 0.3,
-                          child: HoverElevatedButton(
-                            onPressed: () {
-                              _formKey.currentState!.validate();
-                              checkLogin(emailOrUsernameController.text, passwordController.text);
-                              if (correctCredentials) {
-                                // Navigate to the home page or another page after successful login
-                                Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
-                              } else {
-                                setState(() {}); // Update the UI to show the error message
-                              }
-                            },
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                            transformHover: Matrix4.identity()..scaleByVector3((Vector3(1.05, 1.05, 1.0)))..translateByVector3(Vector3(-5.0, 0.0, -5.0)),
-                            child: Text(
-                              'Sign In',
-                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.textDefault),
+                        ) :   
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                MediaQuery.of(context).size.width > 280 ?
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Don't have an account yet?",
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      style: TextStyle(color: AppTheme.gray, fontSize: 8),
+                                    ),
+                                    SizedBox(width: 5,),
+                                    HoverText(
+                                      text: 'Register',
+                                      textAlign: TextAlign.left,
+                                      decoration: TextDecoration.underline,
+                                      hoverDecoration: TextDecoration.underline,
+                                      hoverDecorationEnabled: true,
+                                      style: TextStyle(fontSize: 8),
+                                      onTap: () {
+                                        Navigator.pushNamed(context, '/register');
+                                      },
+                                    ),
+                                  ]
+                                ) : 
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width * 0.6,
+                                      child: Expanded(
+                                        child: Text(
+                                          "Don't have an account yet?",
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          style: TextStyle(color: AppTheme.gray, fontSize: 8),
+                                        ),
+                                      ),
+                                    ),
+                                    HoverText(
+                                      text: 'Register',
+                                      textAlign: TextAlign.left,
+                                      decoration: TextDecoration.underline,
+                                      hoverDecoration: TextDecoration.underline,
+                                      hoverDecorationEnabled: true,
+                                      style: TextStyle(fontSize: 8),
+                                      onTap: () {
+                                        Navigator.pushNamed(context, '/register');
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                HoverText(
+                                    text: 'Forgot Password?',
+                                    textAlign: TextAlign.left,
+                                    decoration: TextDecoration.underline,
+                                    hoverDecoration: TextDecoration.underline,
+                                    hoverDecorationEnabled: true,
+                                    style: TextStyle(fontSize: 8),
+                                    onTap: () {
+                                      Navigator.pushNamed(context, '/forgot-password');
+                                    },
+                                  ),
+                              ],
                             ),
-                          ),
+                          ],
                         ),
+                        
                       ],
-                    )
-                  ],
-                ),
-              )
-            ],
-        ),
-        ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            
+          ],
+        )
       ),
     );
   }

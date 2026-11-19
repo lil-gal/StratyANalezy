@@ -14,6 +14,7 @@ import 'package:nalezy/pages/home.dart';
 import 'package:nalezy/pages/welcome.dart';
 import 'package:nalezy/pages/sign-in.dart';
 import 'package:nalezy/pages/register.dart';
+import 'package:nalezy/pages/forgotPassword.dart';
 import 'package:nalezy/pages/map.dart';
 
 import 'package:nalezy/themes/main_theme.dart';
@@ -47,7 +48,7 @@ class MyApp extends StatelessWidget {
           '/welcome': (context) => const WelcomePage(),
           '/sign-in': (context) => const SignInPage(),  
           '/register': (context) => const RegisterPage(),
-          '/forgot-password': (context) => const Placeholder(),
+          '/forgot-password': (context) => const ForgotPasswordPage(),
         },
     );
   }

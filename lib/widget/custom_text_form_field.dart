@@ -21,11 +21,11 @@ class CustomTextFormField extends StatefulWidget{
 
   const CustomTextFormField({
     super.key,
-    this.style,
     this.autovalidateMode = AutovalidateMode.disabled,
     this.decoration = const InputDecoration(border: OutlineInputBorder(), errorStyle: TextStyle(fontSize: 0)),
     this.errorSize = 12,
     this.fontSize = 12,
+    this.style = const TextStyle(fontSize: 12),
     this.controller,
     this.height = 50,
     this.borderRadius,
@@ -131,13 +131,16 @@ class _CustomTextFormFieldState extends State<CustomTextFormField>{
                         color: AppTheme.error,
                       ),
                       const SizedBox(width: 4),
-                      Text(
+                      Expanded(child: Text(
                         errorText,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 2,
                         style: TextStyle(
                           color: AppTheme.error,
                           fontSize: widget.errorSize,
                         ),
-                      ),
+                      ),)
+                      
                     ],
                   )
                 : SizedBox(height: widget.errorSize + 2);

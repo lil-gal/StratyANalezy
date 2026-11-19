@@ -94,7 +94,7 @@ class _ItemState extends State<Item> {
                     const SizedBox(height: 8),
                     Text(
                       widget.itemDescription,
-                      maxLines: 2,
+                      maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 8,
