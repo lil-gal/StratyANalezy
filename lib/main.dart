@@ -14,6 +14,7 @@ import 'package:nalezy/pages/home.dart';
 import 'package:nalezy/pages/welcome.dart';
 import 'package:nalezy/pages/sign-in.dart';
 import 'package:nalezy/pages/register.dart';
+import 'package:nalezy/pages/map.dart';
 
 import 'package:nalezy/themes/main_theme.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       //home: const MyHomePage(title: 'Straty a Nalezy'),
       routes: {
           '/home': (context) => const HomePage(title: 'Straty a Nalezy'),
-          '/map': (context) => const Placeholder(),
+          '/map': (context) => const MapPage(title: "Mapa"),
           '/add': (context) => CreatePostPage(title: 'Create a Post'),
           '/chats': (context) => const ChatsPage(title: 'Chats'),
           '/chat' : (context) => const ChatPage(title: 'Chat'),
