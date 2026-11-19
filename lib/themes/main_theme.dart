@@ -11,7 +11,7 @@ class AppTheme {
 
   static const Color background = Color.fromARGB(255, 255, 255, 255);
 
-  static const Color error = Color.fromARGB(255, 238, 55, 49);
+  static const Color error = Color.fromRGBO(183, 28, 28, 1);
   
   static const Color slightlyGray = Color.fromARGB(255,225,225,225);
   static const Color gray = Colors.grey;
@@ -47,6 +47,28 @@ class AppTheme {
           }),
         ),
       ),
+
+    inputDecorationTheme: InputDecorationTheme(
+      hoverColor: AppTheme.hover,
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: const BorderSide(color: AppTheme.normal, width: 1.5),
+      ),
+      focusColor: AppTheme.active,
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: const BorderSide(color: AppTheme.active, width: 2.5),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: const BorderSide(color: AppTheme.error, width: 1.5),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8.0),
+        borderSide: const BorderSide(color: AppTheme.error, width: 2.5),
+      ),
+    )
+
     );
   }
 }

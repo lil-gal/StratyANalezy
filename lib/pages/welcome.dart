@@ -23,7 +23,7 @@ class _WelcomePageState extends State<WelcomePage> {
         decoration: BoxDecoration(
           image: DecorationImage(image: Svg(
             'assets/welcome_bg_i13_14.svg'),
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
         ),
         child: Container(
@@ -49,7 +49,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             Navigator.pushNamed(context, '/sign-in');
                           },
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                          transformHover: Matrix4.identity()..scaleByVector3((Vector3(1.05, 1.05, 1.0)))..translateByVector3(Vector3(-5.0, -5.0, -5.0)),
+                          transformHover: Matrix4.identity()..scaleByVector3((Vector3(1.05, 1.05, 1.0)))..translateByVector3(Vector3(-5.0, 0.0, -5.0)),
                           child: Text(
                             'Sign In',
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.textDefault),
@@ -65,7 +65,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             Navigator.pushNamed(context, '/register');
                           },
                           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                          transformHover: Matrix4.identity()..scaleByVector3((Vector3(1.05, 1.05, 1.0)))..translateByVector3(Vector3(-5.0, -5.0, -5.0)),
+                          transformHover: Matrix4.identity()..scaleByVector3((Vector3(1.05, 1.05, 1.0)))..translateByVector3(Vector3(-5.0, 0.0, -5.0)),
                           child: Text(
                             'Register',
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: AppTheme.textDefault),
