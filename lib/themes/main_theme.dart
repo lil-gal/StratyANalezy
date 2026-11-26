@@ -24,6 +24,18 @@ class AppTheme {
   static const Color textDefault = Colors.white;
   static const Color textDisabled = Colors.black;
 
+  
+  static const TextStyle h3_Style = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
+  static const TextStyle text_Style = TextStyle(
+    fontSize: 14,
+  );
+  static const TextStyle desc_Style = TextStyle(
+    fontSize: 12,
+  );
+
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,

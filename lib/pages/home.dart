@@ -27,8 +27,8 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(child: ItemsScroll(title: "Your Lost Items > ")),
-                  Expanded(child: ItemsScroll(title: "Your Found Items >")),
+                  Expanded(child: ItemsScroll(title: "Your Lost Items",  redirect: "/")),
+                  Expanded(child: ItemsScroll(title: "Your Found Items", redirect: "/")),
                 ],
               ),
             )

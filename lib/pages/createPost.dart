@@ -55,7 +55,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
               //   backgroundColor: WidgetStatePropertyAll<Color>(Colors.transparent),
               //   elevation: WidgetStatePropertyAll<double>(0),
               // ),
-              textStyle: TextStyle(fontSize: 40),
+              textStyle: TextStyle(fontSize: 36),
               
               dropdownMenuEntries: [
                 DropdownMenuEntry(value: true, label: "Najdeny objekt"),
